@@ -28,3 +28,5 @@ This application utilizes the APOD (more in further) API provided by NASA.
 1. Launch the application.
 2. The Menu will be displayed.
 3. Use the navigation controls to browse through the app.
+
+(/MainMenu.png)
