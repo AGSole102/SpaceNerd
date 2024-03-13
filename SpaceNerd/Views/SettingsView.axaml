@@ -1,0 +1,75 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:vm="clr-namespace:SpaceNerd.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="SpaceNerd.Views.SettingsView"
+        x:DataType="vm:SettingsViewModel"
+        Background="Black">
+        
+    <Grid ShowGridLines="False" RowDefinitions="16*, *, *" ColumnDefinitions="*, *, *, *" Opacity="0.85">
+        <Image Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="3" Grid.Row="0" Source="/Assets/terminal.jpg" Stretch="Fill" />
+        
+        <Button x:Name="Back" Grid.Row="0" Grid.Column="0" Command="{Binding BackToMenuCommand}" VerticalAlignment="Top" Background="Transparent" Margin="10" CornerRadius="10"
+                Padding="9">
+            <Image Source="/Assets/back.png" Height="28" />
+        </Button>
+        
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Settings" Foreground="White" HorizontalAlignment="Center"
+                   VerticalAlignment="Top" Margin="15" FontFamily="TimesNewRoman" FontStyle="Italic" FontWeight="Bold" FontSize="24" />
+        
+        <!-- <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal"  Margin="0,120,0,0"> -->
+        <!--     <TextBlock Text="Change application's font:" Margin="45, 6, 10, 8" FontSize="15" FontWeight="Bold"/> -->
+        <!--     <ComboBox x:Name="FontFamilySetting" Width="250" Cursor="Hand" FontFamily="TimesNewRoman" FontSize="21" FontWeight="Bold" -->
+        <!--               HorizontalContentAlignment="Center" MaxDropDownHeight="200" ItemsSource="{Binding FontFamilyNames}" SelectedIndex="0"> -->
+        <!--         <ComboBox.ItemTemplate> -->
+        <!--             <DataTemplate> -->
+        <!--                 <TextBlock Text="{Binding FamilyNames}" /> -->
+        <!--             </DataTemplate> -->
+        <!--         </ComboBox.ItemTemplate> -->
+        <!--     </ComboBox> -->
+        <!-- </StackPanel> -->
+        
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0, 120, 0, 0">
+            <TextBlock Text="&#x2022;  What is Your name?" Margin="45, 10, 10, 8" Foreground="White" FontSize="19" FontWeight="Bold" FontFamily="TimesNewRoman" />
+            <TextBox x:Name="UserName" Text="{Binding Username}" VerticalAlignment="Top" Watermark="Username" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Width="100" CornerRadius="10"
+                     Padding="9" Background="Transparent" Foreground="White" />
+            <Button x:Name="SetNameButton" Content="Set!" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" FontFamily="TimesNewRoman" FontSize="18" FontWeight="Bold" Margin="20, 0, 0, 0" CornerRadius="10"
+                    Padding="9" Command="{Binding SetNameCommand}"/>
+        </StackPanel>
+        
+        <Grid Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="2" ColumnDefinitions="*, *, *, *">
+            <Grid.Styles>
+                <Style Selector="Button">
+                    <Setter Property="CornerRadius" Value="10, 10, 0, 0"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="-0.5" />
+                </Style>
+                <Style Selector="Image">
+                    <Setter Property="Height" Value="19" />
+                </Style>
+            </Grid.Styles>
+            
+            <Button x:Name="ApodButton" Command="{Binding OpenApodCommand}" Grid.Column="0">
+                <Image Source="/Assets/new_stars.png"/>
+            </Button>
+            <Button x:Name="AsteroidsButton" Command="{Binding OpenAsteroidsCommand}" Grid.Column="1">
+                <Image Source="/Assets/new_comet.png"/>
+            </Button>
+            <Button x:Name="WeatherButton" Command="{Binding OpenMarsWeatherCommand}" Grid.Column="2">
+                <Image Source="/Assets/new_weather.png"/>
+            </Button>
+        </Grid>
+        
+        <Button x:Name="SettingsButton" Grid.Row="1" Grid.RowSpan="2" Grid.Column="3" CornerRadius="10, 10, 0, 0" Background="Black" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                Margin="-0.7" HorizontalContentAlignment="Center">
+            <Image Source="/Assets/new_gears.png" Height="19" />
+        </Button>
+        
+    </Grid>
+</UserControl>

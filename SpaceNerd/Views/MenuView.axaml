@@ -1,0 +1,135 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:SpaceNerd.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="SpaceNerd.Views.MenuView"
+             x:DataType="vm:MenuViewModel"
+             Background="Black">
+    
+    <Grid ShowGridLines="False" RowDefinitions="16*, *, *" ColumnDefinitions="*, *, *, *" Opacity="0.85">
+        <Image Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="0" Grid.RowSpan="3" Source="/Assets/galaxy.png" Stretch="Fill"/>
+        
+        <TextBlock Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="Menu" Foreground="White" FontFamily="TimesNewRoman"
+                   FontStyle="Italic" FontSize="24" FontWeight="Black" Margin="15" HorizontalAlignment="Center" VerticalAlignment="Top" />
+        
+        <Button x:Name="Info" Click="ShowInfo" Grid.Row="0" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Right" Background="Transparent" Margin="20" CornerRadius="10" Padding="7">
+            <Image Source="/Assets/info.png" Height="33" />
+        </Button>
+        
+        <Border x:Name="InfoBlock" Grid.Row="0" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="4" Background="Transparent" BorderBrush="White" BorderThickness="3"
+                CornerRadius="10" Padding="5" IsVisible="False" VerticalAlignment="Center" HorizontalAlignment="Center"
+                Margin="100, 0, 100, 0">
+            <Border.Styles>
+                <Style Selector="TextBlock">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="TextAlignment" Value="Left" />
+                    <Setter Property="FontSize" Value="10" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontFamily" Value="TimesNewRoman" />
+                    <Setter Property="TextWrapping" Value="Wrap" />
+                    <Setter Property="LineSpacing" Value="7" />
+                </Style>
+                <Style Selector="TextBlock#Title">
+                    <Setter Property="Foreground" Value="White" />
+                    <Setter Property="TextAlignment" Value="Center" />
+                    <Setter Property="FontSize" Value="14" />
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="FontFamily" Value="TimesNewRoman" />
+                    <Setter Property="FontStyle" Value="Italic" />
+                    <Setter Property="TextDecorations" Value="Underline" />
+                </Style>
+            </Border.Styles>
+                
+            <Grid RowDefinitions="Auto, *, *, *, *" >
+                <TextBlock Grid.Row="0" x:Name="Title" Text="Useful Information" Margin="0, 5, 0, 5" />
+                <TextBlock Grid.Row="1" x:Name="MainText1" Text="APOD – Astronomy Picture Of the Day. In this tab you can see an astonishing picture of space landscapes directly from NASA satellites which updates every 24 hours." Margin="10, 0, 10,10" />
+                <TextBlock Grid.Row="2" x:Name="MainText2" Text="Asteroids – shows you the nearest asteroids to Earth at the moment." Margin="10, 0, 10,10" />
+                <TextBlock Grid.Row="3" x:Name="MainText3" Text="Mars Weather – you have a chance to know what is the weather on the mystery red planet right now. " Margin="10, 0, 10,10" />
+                <TextBlock Grid.Row="4" x:Name="MainText4" Text="Settings – contains some customizations. Go there and check what you can change in the app!" Margin="10, 0, 10,10" />
+            </Grid>
+        </Border>
+        
+        <TextBlock x:Name="Greeting" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Text="{Binding Output}" Foreground="White" FontFamily="TimesNewRoman" FontSize="24" FontWeight="Bold"
+                   VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0, 45, 0, 0" FontStyle="Italic" />
+        
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" ColumnDefinitions="*, *, *, *">
+            <StackPanel Grid.Column="0" VerticalAlignment="Bottom" Spacing="15">
+                <TextBlock Text="APOD" Foreground="White" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="TimesNewRoman" />
+                <Image x:Name="First" Source="/Assets/back.png" Height="20" Margin="0, 0, 0, -15">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270" />
+                            <ScaleTransform ScaleY="1.7" />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+            
+            <StackPanel Grid.Column="1" VerticalAlignment="Bottom" Spacing="15">
+                <TextBlock Text="Asteroids" Foreground="White" HorizontalAlignment="Center" FontSize="16" FontWeight="Bold" FontFamily="TimesNewRoman" />
+                <Image x:Name="Second" Source="/Assets/back.png" Height="20" Margin="0, 0, 0, -15">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270" />
+                            <ScaleTransform ScaleY="1.7" />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+            <StackPanel Grid.Column="2" VerticalAlignment="Bottom" Spacing="15">
+                <TextBlock Text="Mars Weather" Foreground="White" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="TimesNewRoman" />
+                <Image x:Name="Third" Source="/Assets/back.png" Height="20" Margin="0, 0, 0, -15">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270" />
+                            <ScaleTransform ScaleY="1.7" />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+            <StackPanel Grid.Column="3" VerticalAlignment="Bottom" Spacing="15">
+                <TextBlock Text="Settings" Foreground="White" HorizontalAlignment="Center" FontSize="15" FontWeight="Bold" FontFamily="TimesNewRoman" />
+                <Image x:Name="Fourth" Source="/Assets/back.png" Height="20" Margin="0, 0, 0, -15">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <RotateTransform Angle="270" />
+                            <ScaleTransform ScaleY="1.7" />
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </StackPanel>
+        </Grid>
+        
+        <Grid Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="4" ColumnDefinitions="*, *, *, *" Background="Transparent">
+            <Grid.Styles>
+                <Style Selector="Button">
+                    <Setter Property="CornerRadius" Value="10, 10, 0, 0"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="Background" Value="Black"/>
+                    <Setter Property="HorizontalAlignment" Value="Stretch" />
+                    <Setter Property="VerticalAlignment" Value="Stretch" />
+                    <Setter Property="Margin" Value="-0.5" />
+                </Style>
+                <Style Selector="Image">
+                    <Setter Property="Height" Value="19" />
+                </Style>
+            </Grid.Styles>
+            
+            <Button x:Name="ApodButton" Command="{Binding OpenApodCommand}" Grid.Column="0">
+                <Image Source="/Assets/new_stars.png"/>
+            </Button>
+            <Button x:Name="AsteroidsButton" Command="{Binding OpenAsteroidsCommand}" Grid.Column="1">
+                <Image Source="/Assets/new_comet.png"/>
+            </Button>
+            <Button x:Name="WeatherButton" Command="{Binding OpenMarsWeatherCommand}" Grid.Column="2">
+                <Image Source="/Assets/new_weather.png"/>
+            </Button>
+            <Button x:Name="SettingsButton" Command="{Binding OpenSettingsCommand}" Grid.Column="3">
+                <Image Source="/Assets/new_gears.png" Height="18"/>
+            </Button>
+        </Grid>
+    </Grid>
+</UserControl>
