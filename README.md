@@ -31,4 +31,4 @@ This application utilizes the APOD (more in further) API provided by NASA.
 
 ![Screenshot of Main Menu](MainMenu.png)
 
-![APOD Info](APOD_Info.png)
+![APOD Info](APODInfo.png)
